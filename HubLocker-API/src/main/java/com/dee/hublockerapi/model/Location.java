@@ -34,7 +34,7 @@ public class Location {
     private String imageUrl;
 
     @Column(name = "rating")
-    private int rating;
+    private String rating;
 
     @JsonIgnore
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
