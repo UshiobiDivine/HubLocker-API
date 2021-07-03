@@ -11,17 +11,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/location")
 public class LocationController {
 
     @Autowired
-    private LockerService lockerService;
+    private LocationService locationService;
 
     @PostMapping
-    public ResponseEntity<Locker> addLocker(@Valid @RequestBody LockerRequest lockerRequest) {
-        Locker locker = lockerService.addLocker(lockerRequest);
-        return ResponseEntity.ok(locker);
+    public ResponseEntity<Location> addLocker(@Valid @RequestBody LocationRequest locationRequest) {
+        Location location = locationService.addLocation(locationRequest);
+        return ResponseEntity.ok(location);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Location>> getAllLocations(){
+        List<Location> allLocation = locationService.getAllLocation();
+        return ResponseEntity.ok(allLocation);
     }
 }

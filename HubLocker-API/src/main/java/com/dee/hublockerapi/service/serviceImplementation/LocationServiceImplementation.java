@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LocationServiceImplementation implements LocationService{
 
@@ -22,7 +24,11 @@ public class LocationServiceImplementation implements LocationService{
         Location location = new Location();
         modelMapper.map(locationRequest, location);
         Location savedLocation = locationRepository.save(location);
-
         return savedLocation;
+    }
+
+    @Override
+    public List<Location> getAllLocation() {
+        return locationRepository.findAll();
     }
 }
