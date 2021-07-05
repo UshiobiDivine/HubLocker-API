@@ -3,6 +3,7 @@ package com.dee.hublockerapi.payloads;
 import lombok.Data;
 import org.hibernate.validator.constraints.URL;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -20,6 +21,6 @@ public class LocationRequest {
     private String imageUrl;
 
     @NotBlank
-    @Size(max = 5)
+    @Max(5)
     private String rating;
 }

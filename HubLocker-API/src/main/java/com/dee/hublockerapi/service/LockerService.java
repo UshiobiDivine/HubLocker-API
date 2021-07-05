@@ -10,6 +10,8 @@ import java.util.List;
 public interface LockerService {
     Locker addLocker(LockerRequest lockerRequest);
 
+    Locker addLockerToLocation(LockerRequest lockerRequest, Long id);
+
     List<Locker> allLockers();
 
     List<Locker> lockersByCityOrState(String cityOrState);

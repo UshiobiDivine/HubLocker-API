@@ -2,15 +2,18 @@ package com.dee.hublockerapi.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -34,6 +37,7 @@ public class Location {
     private String imageUrl;
 
     @Column(name = "rating")
+    @Max(5)
     private String rating;
 
     @JsonIgnore

@@ -36,4 +36,11 @@ public class LockerController {
         List<Locker> byCityOrState = lockerService.lockersByCityOrState(cityOrState);
         return ResponseEntity.ok(byCityOrState);
     }
+
+    @PostMapping("/{locationId}")
+    public ResponseEntity<Locker> addLockerToLocation(@Valid @RequestBody LockerRequest lockerRequest,
+                                                      @PathVariable(name = "locationId") Long locationId) {
+        Locker locker = lockerService.addLockerToLocation(lockerRequest, locationId);
+        return ResponseEntity.ok(locker);
+    }
 }
