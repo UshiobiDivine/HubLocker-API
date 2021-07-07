@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface LockerRepository extends JpaRepository<Locker, Long> {
 
-    List<Locker> findAllByLocation_LocationName(String location);
+//    List<Locker> findAllByLocation_LocationName(String location);
+    List<Locker> findAllByLocationLocationNameStartsWith(String location);
+//    List<Locker> findAllByLocation;
 }

@@ -62,7 +62,7 @@ public class LockerServiceImplementation implements LockerService {
     @Override
     public List<Locker> lockersByCityOrState(String cityOrState) {
 
-        List<Locker> all = lockerRepository.findAllByLocation_LocationName(cityOrState);
+        List<Locker> all = lockerRepository.findAllByLocationLocationNameStartsWith(cityOrState);
         if (Optional.of(all).isPresent()){
             return all;
         }
